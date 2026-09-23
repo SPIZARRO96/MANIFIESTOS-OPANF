@@ -1868,10 +1868,7 @@ document.getElementById('del-overlay').addEventListener('click', e => {
 // ═══════════════════════════════════════════════════════════
 const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzKfRMQnltqoTGqJQJPRdTSokkF-eX6ERSgneSWaxWwG6-AwLzirtlm8twyUrcwY1Vd/exec';
 function getScriptUrl() {
-  // Always prefer the hardcoded URL — only use localStorage if user explicitly overrode it
-  // and it matches the same domain (to avoid stale old URLs)
-  const saved = localStorage.getItem('apps_script_url');
-  if (saved && saved.includes('AKfycbzKfRMQnltqoTGqJQJPRdTSokkF')) return saved;
+  // Always use the hardcoded URL — ignore localStorage to avoid stale URLs
   return DEFAULT_SCRIPT_URL;
 }
 function getScriptUser() { return localStorage.getItem('apps_script_user') || ''; }
